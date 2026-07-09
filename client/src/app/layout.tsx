@@ -1,21 +1,49 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter, DM_Sans } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Product Validator AI - Validate Startup Ideas in Minutes',
-  description: 'AI-powered platform to analyze startup feasibility, market demand, competition, SWOT, customer personas, GTM strategy, and generate investor-ready PDF reports.',
-  keywords: ['startup validation', 'AI business plan', 'market research AI', 'product validator', 'SWOT analysis generator', 'customer persona AI'],
+  title: 'Product Validator AI — Validate Your Startup Idea in 2 Minutes',
+  description:
+    '90% of startups fail from poor validation. Get a complete AI-powered viability report with competitor analysis, market sizing, SWOT, and GO/NO-GO verdict in minutes — not months.',
+  keywords: [
+    'startup validation',
+    'AI business plan',
+    'market research AI',
+    'product validator',
+    'SWOT analysis generator',
+    'customer persona AI',
+    'idea validation',
+    'feasibility scoring',
+    'competitor analysis',
+    'MVP recommendations',
+    'GTM strategy',
+  ],
+  openGraph: {
+    title: 'Product Validator AI — Validate Your Startup Idea in 2 Minutes',
+    description:
+      'Get a complete AI-powered viability report with competitor analysis, market sizing, SWOT, and GO/NO-GO verdict in minutes.',
+    type: 'website',
+    siteName: 'Product Validator AI',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Product Validator AI — Validate Your Startup Idea in 2 Minutes',
+    description:
+      'Get a complete AI-powered viability report with competitor analysis, market sizing, SWOT, and GO/NO-GO verdict in minutes.',
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +52,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full dark">
+    <html lang="en" className="h-full">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col font-sans bg-background text-foreground antialiased`}
+        className={`${inter.variable} ${dmSans.variable} min-h-full flex flex-col antialiased`}
+        style={{ fontFamily: "'Inter', 'DM Sans', system-ui, sans-serif" }}
       >
         <div className="flex-1 flex flex-col">{children}</div>
       </body>
